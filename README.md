@@ -70,22 +70,33 @@ public StubRunnerExtension stubRunnerExtension = new StubRunnerExtension()
 
 ![image](https://github.com/this-is-spear/hello-spring-contract/assets/92219795/084a0697-6515-4c83-b69b-caf2a2cc1f20)
 
-그런데 공급자가 변경된다면 소비자의 동작을 틀려져야 한다.
+그런데 공급자가 변경된다면 소비자의 동작은 새롭게 변경된 계약서를 확인해야하지만 그렇지 않게 된다.
 
 ![image](https://github.com/this-is-spear/hello-spring-contract/assets/92219795/dce54f58-53bb-4324-8e88-b0b8fbe31481)
 
-수동으로 업데이트하게 되면 분명 누락으로 인해 예상치 못한 문제가 발생할 수 있다.
+이런 문제로 생각한 고민은 다음과 같다.
 
-![image](https://github.com/this-is-spear/hello-spring-contract/assets/92219795/1c0f3e24-1ee0-48eb-8259-604ec22e9239)
+- 공급자가 변경될때마다 수동으로 변경하면 무조건 실수가 발생한다.
+- 소비자는 이전 계약서를 기반으로 빌드될텐데, 새로운 계약서로 빌드된 공급자와 통신할 수 없게 된다.
+
+첫 번째 고민부터 살펴보겠다. 
+우선 수동으로 업데이트하게 되면 분명 누락으로 인해 예상치 못한 문제가 발생할 수 있다.
+
+![image](https://github.com/this-is-spear/hello-spring-contract/assets/92219795/a0c951b7-d189-4705-b6b2-a62181f73a55)
 
 그래서 고안한 건 자기 자신을 검증해 이전 계약서와 틀려진 부분이 있다면 최신화 할 수 있도록 빌드 전에 검증하는 프로세스를 만들면 된다.
 
 ![image](https://github.com/this-is-spear/hello-spring-contract/assets/92219795/35d60a2f-4bda-4355-9a8c-18a3e18de9f3)
 
-그렇게 되면 발생하는 문제는 이전 계약서로 빌드된 소비자는 새로운 계약서로 빌드된 공급자와 통신할 수 없게 된다.
-이런 문제를 해결하기 위해서는 주기적으로 빌드해서 실패하는지를 검증하는 로직을 추가해야 한다.
+두 번째 고민은 이전 계약서로 빌드된 소비자는 새로운 계약서로 빌드된 공급자와 통신할 수 없는 문제다.
 
 ![image](https://github.com/this-is-spear/hello-spring-contract/assets/92219795/c5c6fc1d-0046-43ac-babe-d81f6079e732)
+
+이런 문제를 해결하기 위해서는 주기적으로 빌드해서 실패하는지를 검증하는 로직을 추가해야 한다.
+
+![image](https://github.com/this-is-spear/hello-spring-contract/assets/92219795/f115282e-9a7d-4815-807c-db7af8e1283a)
+
+거기에다 나는 하나의 일에만 집중하는 걸 좋아하다보니 코드 작성에만 집중할 수 있도록 복잡한 과정을 자동화해볼 생각이다.
 
 ### 🛠️버전에 따라 달라지는 경우는 어떻게 수행해야할까?
 
