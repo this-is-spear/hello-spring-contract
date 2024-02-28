@@ -82,7 +82,7 @@ public StubRunnerExtension stubRunnerExtension = new StubRunnerExtension()
 첫 번째 고민부터 살펴보겠다. 
 우선 수동으로 업데이트하게 되면 분명 누락으로 인해 예상치 못한 문제가 발생할 수 있다.
 
-![image](https://github.com/this-is-spear/hello-spring-contract/assets/92219795/a0c951b7-d189-4705-b6b2-a62181f73a55)
+![image](https://github.com/this-is-spear/hello-spring-contract/assets/92219795/1c0f3e24-1ee0-48eb-8259-604ec22e9239)
 
 그래서 고안한 건 자기 자신을 검증해 이전 계약서와 틀려진 부분이 있다면 최신화 할 수 있도록 빌드 전에 검증하는 프로세스를 만들면 된다.
 
