@@ -104,6 +104,8 @@ public StubRunnerExtension stubRunnerExtension = new StubRunnerExtension()
 
 ### 🛠️테스트컨테이너로 격리됐을 때는 어떻게 진행해야 할까?
 
+고민중이다.
+
 ## 진행하면서 배운점
 
 ### 🛠️CRLF 오랜만이야
