@@ -33,7 +33,7 @@
 공급자의 동작 먼저 살펴보겠다. 
 우리는 RestAssuredMockMvc 클래스가 제공하는 standaloneSetup 메서드만을 이용해 세팅을 완료하면 알아서 테스트를 진행해준다.
 
-![image](https://github.com/this-is-spear/hello-spring-contract/assets/92219795/d5accc71-a2ab-4241-8755-749d53b913e7)
+![image](https://github.com/this-is-spear/hello-spring-contract/assets/92219795/6e915c73-5ebb-4f23-94a5-207bb74dd7ad)
 
 > build 후 build 파일에 generated-test-sources 에 접근하면 계약에 맞게 생성된 테스트 코드를 확인할 수 있다.
 
@@ -56,6 +56,11 @@
 ```
 
 이렇게 구성하면 `build`를 실행할때마다 올바른 계약인지 검증하게 된다.
+
+다음은 소비자 세팅을 확인해보겠다.
+
+🛠️
+
 
 ### 소비자 중심 계약
 
