@@ -1,11 +1,11 @@
-package tis.hellospringcontract
+package tis.consumer
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class HelloSpringContractApplication
+class ConsumerApplication
 
 fun main(args: Array<String>) {
-	runApplication<HelloSpringContractApplication>(*args)
+    runApplication<ConsumerApplication>(*args)
 }
