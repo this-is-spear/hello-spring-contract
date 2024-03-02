@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: producer
+server:
+  port: ${PRODUCER_APP_PORT:8090}

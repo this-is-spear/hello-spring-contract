@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: consumer
+server:
+  port: ${CONSUMER_APP_PORT:9000}
