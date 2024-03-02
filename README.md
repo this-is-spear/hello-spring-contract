@@ -27,12 +27,36 @@
 >
 > spring 레퍼런스에서도 계약만 테스트할 뿐이지 전체 동작을 시뮬레이션하는게 아니라고 한다. - [참고 링크](https://docs.spring.io/spring-cloud-contract/reference/getting-started/introducing-spring-cloud-contract.html#getting-started-introducing-spring-cloud-contract-purposes)
 
+`spring contract`가 추구하는 동작은 다음처럼 공급자는 `검증된 계약`을 제공하고 소비자는 `검증된 계약`으로 동작을 테스트한다.
 
-별다른 설정없이 HTTP 메시지를 스텁해 계약을 검증하고 있다.
-스텁은 `groovy`, `yaml`, `java`로 작성할 수 있으며, 각각의 장단점이 있어보인다.
-작성되는 형식은 다음처럼 동일하다.
+![image](https://github.com/this-is-spear/hello-spring-contract/assets/92219795/4793c10c-1a2c-41f0-a870-bbdb7d9ebb2d)
 
-![image](https://github.com/this-is-spear/hello-spring-contract/assets/92219795/253437f0-8b7e-4d6b-8e59-bcf92faf0b4c)
+공급자의 동작 먼저 살펴보겠다. 
+우리는 RestAssuredMockMvc 클래스가 제공하는 standaloneSetup 메서드만을 이용해 세팅을 완료하면 알아서 테스트를 진행해준다.
+
+![image](https://github.com/this-is-spear/hello-spring-contract/assets/92219795/d5accc71-a2ab-4241-8755-749d53b913e7)
+
+> build 후 build 파일에 generated-test-sources 에 접근하면 계약에 맞게 생성된 테스트 코드를 확인할 수 있다.
+
+공급자 관련 세팅,,, 정말 어렵다. 잘 안되는데, [샘플 코드](https://github.com/spring-cloud-samples/spring-cloud-contract-samples)를 잘 확인하면서 진행해보자.
+특히나 빌드 관련 파일이 말썽이다.
+
+추가로 유의할 점은 `contracts` 내부 폴더 이름을 `prefix`로하는 `Base` 테스트 클래스가 필요하다는 점이다.
+즉, `fraoud` 폴더는 `FraoudBase.kt`를 필요로 한다.
+
+```text
+.
+├── kotlin
+│   └── tis
+│       └── producer
+│           └── FraoudBase.kt
+└── resources
+    └── contracts
+        └── fraoud
+            └── fraud-check.groovy
+```
+
+이렇게 구성하면 `build`를 실행할때마다 올바른 계약인지 검증하게 된다.
 
 ### 소비자 중심 계약
 
