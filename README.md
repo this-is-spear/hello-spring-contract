@@ -25,9 +25,8 @@
 
 > Contract tests are used to test contracts between applications, not to simulate full behavior.
 >
-> spring 레퍼런스에서도 계약만 테스트할 뿐이지 전체 동작을 시뮬레이션하는게 아니라고 한다.
+> spring 레퍼런스에서도 계약만 테스트할 뿐이지 전체 동작을 시뮬레이션하는게 아니라고 한다. - [참고 링크](https://docs.spring.io/spring-cloud-contract/reference/getting-started/introducing-spring-cloud-contract.html#getting-started-introducing-spring-cloud-contract-purposes)
 
-[참고 링크](https://docs.spring.io/spring-cloud-contract/reference/getting-started/introducing-spring-cloud-contract.html#getting-started-introducing-spring-cloud-contract-purposes)
 
 별다른 설정없이 HTTP 메시지를 스텁해 계약을 검증하고 있다.
 스텁은 `groovy`, `yaml`, `java`로 작성할 수 있으며, 각각의 장단점이 있어보인다.
