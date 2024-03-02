@@ -13,6 +13,10 @@ allprojects {
     version = "0.0.1-SNAPSHOT"
     repositories {
         mavenCentral()
+        mavenLocal()
+        maven { url = uri("https://repo.spring.io/release") }
+        maven { url = uri("https://repo.spring.io/milestone") }
+        maven { url = uri("https://repo.spring.io/snapshot") }
     }
 }
 
@@ -22,10 +26,6 @@ subprojects {
     apply(plugin = "org.springframework.boot")
     apply(plugin = "io.spring.dependency-management")
 
-    repositories {
-        mavenCentral()
-    }
-
     extra["springCloudVersion"] = "2023.0.0"
 
     dependencies {
@@ -34,7 +34,6 @@ subprojects {
         implementation("org.jetbrains.kotlin:kotlin-reflect")
         testImplementation("org.springframework.boot:spring-boot-starter-test")
         testImplementation("org.springframework.boot:spring-boot-testcontainers")
-        testImplementation("org.springframework.cloud:spring-cloud-starter-contract-stub-runner")
         testImplementation("org.testcontainers:junit-jupiter")
     }
 
