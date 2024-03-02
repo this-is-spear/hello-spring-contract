@@ -20,14 +20,13 @@
 
 [spring cloud contract](https://docs.spring.io/spring-cloud-contract/reference/getting-started/introducing-spring-cloud-contract.html)
 는 서로 간 최소한의 계약만을 정의해 `충분히` 검증 할 수 있도록 도와준다.
-
 충분히 검증한다는 것은, 진행되는 테스트가 계약에 맞게 통신이 정상적으로 이루어진다는 것을 의미할 뿐이지 외부 서비스의 영향을 받지 않는다는 것을 의미하지는 않는다.
 
 > Contract tests are used to test contracts between applications, not to simulate full behavior.
 >
 > spring 레퍼런스에서도 계약만 테스트할 뿐이지 전체 동작을 시뮬레이션하는게 아니라고 한다. - [참고 링크](https://docs.spring.io/spring-cloud-contract/reference/getting-started/introducing-spring-cloud-contract.html#getting-started-introducing-spring-cloud-contract-purposes)
 
-`spring contract`가 추구하는 동작은 다음처럼 공급자는 `검증된 계약`을 제공하고 소비자는 `검증된 계약`으로 동작을 테스트한다.
+`spring contract`가 추구하는 동작은 다음처럼 공급자는 `검증된 계약`을 제공하고 소비자는 `검증된 계약`으로 동작을 테스트하도록 유도하는 일이다.
 
 ![image](https://github.com/this-is-spear/hello-spring-contract/assets/92219795/4793c10c-1a2c-41f0-a870-bbdb7d9ebb2d)
 
