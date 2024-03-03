@@ -15,8 +15,7 @@ class FraudService(
     private var port = 6565
     private val restTemplate: RestTemplate = builder.build()
 
-    fun sendRequestToCheckFraudDetection(clientId: String, loanAmount: Double): FraudCheckResponse {
-        val request = FraudCheckRequest(clientId, loanAmount)
+    fun sendRequestToCheckFraudDetection(request: FraudCheckRequest): FraudCheckResponse {
         val headers = HttpHeaders()
         headers.add(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
 

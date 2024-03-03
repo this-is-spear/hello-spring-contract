@@ -14,14 +14,15 @@ class FraudServiceTest {
 
     @Test
     fun checkFraud() {
-        val response = fraudService.sendRequestToCheckFraudDetection("1234567890", 99999.0)
+        val response = fraudService.sendRequestToCheckFraudDetection(FraudCheckRequest("1234567890", 99999.0))
         assert(response.fraudCheckStatus == FraudCheckStatus.FRAUD)
         assert(response.rejectionReason == "Amount too high")
     }
 
     @Test
     fun checkNotFraud() {
-        val response = fraudService.sendRequestToCheckFraudDetection("1234567890", 123.123)
+        val fraudCheckRequest = fraudCheckRequestBuilder.sample()
+        val response = fraudService.sendRequestToCheckFraudDetection(fraudCheckRequest)
         assert(response.fraudCheckStatus == FraudCheckStatus.OK)
         assert(response.acceptanceReason == "Amount OK")
     }
